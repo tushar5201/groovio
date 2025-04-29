@@ -7,8 +7,8 @@ export default async function Carousel() {
 
   try {
     const [moviesRes, genresRes] = await Promise.all([
-      fetch(`${baseUrl}/carousel`),
-      fetch(`${baseUrl}/get-genres`)
+      fetch(`/api/carousel`),
+      fetch(`/api/get-genres`)
     ]);
 
     if (moviesRes.status === 200) {

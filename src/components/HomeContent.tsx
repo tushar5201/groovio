@@ -5,7 +5,7 @@ import { CarouselMovieInterface } from "@/interfaces/interface";
 import { baseUrl, imageUrl } from "@/lib/utils";
 
 export default async function HomeContent() {
-    const res = await fetch(`${baseUrl}/get-latest-bollywood-movies`);
+    const res = await fetch(`/get-latest-bollywood-movies`);
     const response = await res.json();
     const data = response.results;
     return (
