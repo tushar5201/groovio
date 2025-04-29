@@ -3,11 +3,12 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Image from "next/image";
 import Link from "next/link";
 import { CarouselMovieInterface } from "@/interfaces/interface";
-import { imageUrl } from "@/lib/utils";
+import { baseUrl, imageUrl } from "@/lib/utils";
 
 export default async function HomeContent() {
-    const res = await axios.get(`/api/get-latest-bollywood-movies`);
-    const data = res.data.results;
+    const res = await fetch(`${baseUrl}/get-latest-bollywood-movies`);
+    const response = await res.json();
+    const data = response.results;
     return (
         <div className="px-15">
             <h1 className="my-8 font-lexend text-white font-bold text-2xl flex"><div className="w-1.5 h-8 me-2 bg-[#FF004D]" />Bollywood Movies</h1>
