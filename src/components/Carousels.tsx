@@ -11,12 +11,15 @@ export default async function Carousel() {
       fetch(`${baseUrl}/get-genres`)
     ]);
 
-    const moviesData = await moviesRes.json();
-    const genresData = await genresRes.json();
-
-    movies = moviesData.results || moviesData;
-    genres = genresData.genres;
-
+    if (moviesRes.status === 200) {
+      const moviesData = await moviesRes.json();
+      const genresData = await genresRes.json();
+      movies = moviesData.results || moviesData;
+      genres = genresData.genres;  
+    } else {
+      throw new Error("Unexpected")
+    }
+    
   } catch (err) {
     console.error("Failed to fetch carousel data", err);
   }
