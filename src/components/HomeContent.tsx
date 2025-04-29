@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CarouselMovieInterface } from "@/interfaces/interface";
 
 export default async function HomeContent() {
-    const res = await fetch(`https://groovio.vercel.app/api/get-latest-bollywood-movies`);
+    const res = await fetch(`https://movie-bphs.onrender.com/get-latest-bollywood-movies`);
     const response = await res.json();
     const data = response.results;
     return (

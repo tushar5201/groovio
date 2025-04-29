@@ -1,3 +1,4 @@
+import axios from "axios";
 import CarouselClient from "./CarouselClient";
 
 export default async function Carousel() {
@@ -6,19 +7,16 @@ export default async function Carousel() {
 
   try {
     const [moviesRes, genresRes] = await Promise.all([
-      fetch(`https://groovio.vercel.app/api/carousel`),
-      fetch(`https://groovio.vercel.app/api/get-genres`)
+      axios.get(`https://movie-bphs.onrender.com/carousel`),
+      axios.get(`https://movie-bphs.onrender.com/get-genres`)
     ]);
 
-    if (moviesRes.status === 200) {
-      const moviesData = await moviesRes.json();
-      const genresData = await genresRes.json();
-      movies = moviesData.results || moviesData;
-      genres = genresData.genres;  
-    } else {
-      throw new Error("Unexpected")
-    }
-    
+    // const moviesData = await moviesRes.json();
+    // const genresData = await genresRes.json();
+    // movies = moviesData.results || moviesData;
+    // genres = genresData.genres;
+    movies = moviesRes.data.results
+    genres = genresRes.data.genres;
   } catch (err) {
     console.error("Failed to fetch carousel data", err);
   }

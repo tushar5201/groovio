@@ -16,6 +16,8 @@ interface CarouselClientProps {
 }
 
 const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
+    console.log(process.env.BASE_URL);
+    
     return (
         <div className="swiper-container">
             <Swiper
