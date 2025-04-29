@@ -3,7 +3,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Image from "next/image";
 import Link from "next/link";
 import { CarouselMovieInterface } from "@/interfaces/interface";
-import { baseUrl, imageUrl } from "@/lib/utils";
+import { imageUrl } from "@/lib/utils";
 
 export default async function HomeContent() {
     const res = await axios.get(`/api/get-latest-bollywood-movies`);
