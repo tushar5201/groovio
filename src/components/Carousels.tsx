@@ -7,8 +7,8 @@ export default async function Carousel() {
 
   try {
     const [moviesRes, genresRes] = await Promise.all([
-      axios.get(`https://movie-bphs.onrender.com/carousel`),
-      axios.get(`https://movie-bphs.onrender.com/get-genres`)
+      axios.get(`https://groovio.vercel.app/api/carousel`),
+      axios.get(`https://groovio.vercel.app/api/get-genres`)
     ]);
 
     // const moviesData = await moviesRes.json();
