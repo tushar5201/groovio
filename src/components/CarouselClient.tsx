@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
+import { CarouselGenreInterface, CarouselMovieInterface } from '@/interfaces/interface';
 
 const CarouselClient = ({ movies, genres }: any) => {
     return (
@@ -24,7 +25,7 @@ const CarouselClient = ({ movies, genres }: any) => {
                 modules={[Autoplay, Pagination, Navigation, EffectFade]}
                 className="mySwiper"
             >
-                {movies.map((movie: any, i: number) => (
+                {movies.map((movie: CarouselMovieInterface, i: number) => (
                     <>
                         {
                             movie.backdrop_path !== null &&
@@ -45,9 +46,9 @@ const CarouselClient = ({ movies, genres }: any) => {
                                     <div className="absolute text-white bottom-20 left-25 z-50">
                                         <h2 className="text-white text-3xl font-semibold">{movie.title}</h2>
                                         <div className="flex mt-2">
-                                            {movie.genre_ids.map((genre: string, i: number) => (
+                                            {movie.genre_ids.map((genre, i: number) => (
                                                 <div key={i}>
-                                                    {genres.map((g: any, j: number) => (
+                                                    {genres.map((g: CarouselGenreInterface, j: number) => (
                                                         <h6 key={j} className="mt-2 me-2">
                                                             {genre === g.id && g.name}
                                                         </h6>
