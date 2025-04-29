@@ -8,14 +8,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
-import { CarouselGenreInterface, CarouselMovieInterface } from '@/interfaces/interface';
 
-interface Props {
-    movies: CarouselMovieInterface;
-    genres: CarouselGenreInterface;
-}
-
-const CarouselClient = ({ movies, genres }: Props) => {
+const CarouselClient = ({ movies, genres }: any) => {
     return (
         <div className="swiper-container">
             <Swiper
@@ -30,7 +24,7 @@ const CarouselClient = ({ movies, genres }: Props) => {
                 modules={[Autoplay, Pagination, Navigation, EffectFade]}
                 className="mySwiper"
             >
-                {movies.map((movie: any, i) => (
+                {movies.map((movie: any, i: number) => (
                     <>
                         {
                             movie.backdrop_path !== null &&
