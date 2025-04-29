@@ -2,10 +2,9 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Image from "next/image";
 import Link from "next/link";
 import { CarouselMovieInterface } from "@/interfaces/interface";
-import { imageUrl } from "@/lib/utils";
 
 export default async function HomeContent() {
-    const res = await fetch(`/api/get-latest-bollywood-movies`);
+    const res = await fetch(`${process.env.BASE_URL}/api/get-latest-bollywood-movies`);
     const response = await res.json();
     const data = response.results;
     return (
@@ -17,7 +16,7 @@ export default async function HomeContent() {
                         <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/7">
                             <Link href={`/movie/${movie.id}`} key={i} className="relative overflow-hidden rounded-xl group">
                                 <Image
-                                    src={`${imageUrl}/${movie.poster_path}`}
+                                    src={`${process.env.IMGURL}/${movie.poster_path}`}
                                     alt={movie.title}
                                     width={250}
                                     height={500}
