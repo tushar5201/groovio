@@ -10,7 +10,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import { CarouselGenreInterface, CarouselMovieInterface } from '@/interfaces/interface';
 
-const CarouselClient = ({ movies, genres }: any) => {
+interface CarouselClientProps {
+    movies: CarouselMovieInterface[];
+    genres: CarouselGenreInterface[];
+}
+
+const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
     return (
         <div className="swiper-container">
             <Swiper
