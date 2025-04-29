@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CarouselMovieInterface } from "@/interfaces/interface";
 
 export default async function HomeContent() {
-    const res = await fetch(`${process.env.BASE_URL}/api/get-latest-bollywood-movies`);
+    const res = await fetch(`https://groovio.vercel.app/api/get-latest-bollywood-movies`);
     const response = await res.json();
     const data = response.results;
     return (
@@ -16,7 +16,7 @@ export default async function HomeContent() {
                         <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/7">
                             <Link href={`/movie/${movie.id}`} key={i} className="relative overflow-hidden rounded-xl group">
                                 <Image
-                                    src={`${process.env.IMGURL}/${movie.poster_path}`}
+                                    src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                                     alt={movie.title}
                                     width={250}
                                     height={500}

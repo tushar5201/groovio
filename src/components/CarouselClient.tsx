@@ -37,7 +37,7 @@ const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
                             <SwiperSlide key={i}>
                                 <div className="slide-image-container">
                                     <Image
-                                        src={`${process.env.IMGURL}/${movie.backdrop_path}`}
+                                        src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                                         alt={movie.original_title}
                                         fill
                                         priority
@@ -61,7 +61,7 @@ const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
                                                 </div>
                                             ))}
                                             <h6 className="mt-2">
-                                                &nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;{movie.release_date?.substring(0, 4)}
+                                                &nbsp;&nbsp;<b>·</b>&nbsp;&nbsp;{movie.release_date?.substring(0,4)}
                                             </h6>
                                         </div>
                                         <p className="w-[50%] text-light-grey">

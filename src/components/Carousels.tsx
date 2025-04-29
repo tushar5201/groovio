@@ -6,8 +6,8 @@ export default async function Carousel() {
 
   try {
     const [moviesRes, genresRes] = await Promise.all([
-      fetch(`${process.env.BASE_URL}/api/carousel`),
-      fetch(`${process.env.BASE_URL}/api/get-genres`)
+      fetch(`https://groovio.vercel.app/api/carousel`),
+      fetch(`https://groovio.vercel.app/api/get-genres`)
     ]);
 
     if (moviesRes.status === 200) {
