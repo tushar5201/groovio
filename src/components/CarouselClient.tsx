@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import { CarouselGenreInterface, CarouselMovieInterface } from '@/interfaces/interface';
+import { imageUrl } from '@/lib/utils';
 
 interface CarouselClientProps {
     movies: CarouselMovieInterface[];
@@ -37,7 +38,7 @@ const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
                             <SwiperSlide key={i}>
                                 <div className="slide-image-container">
                                     <Image
-                                        src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                                        src={`${imageUrl}/${movie.backdrop_path}`}
                                         alt={movie.original_title}
                                         fill
                                         priority

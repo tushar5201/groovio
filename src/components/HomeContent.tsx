@@ -3,9 +3,10 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Image from "next/image";
 import Link from "next/link";
 import { CarouselMovieInterface } from "@/interfaces/interface";
+import { baseUrl, imageUrl } from "@/lib/utils";
 
 export default async function HomeContent() {
-    const res = await axios("https://movie-bphs.onrender.com/get-latest-bollywood-movies");
+    const res = await axios(`${baseUrl}/get-latest-bollywood-movies`);
     const data = res.data.results;
     return (
         <div className="px-15">
@@ -16,7 +17,7 @@ export default async function HomeContent() {
                         <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/7">
                             <Link href={`/movie/${movie.id}`} key={i} className="relative overflow-hidden rounded-xl group">
                                 <Image
-                                    src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                                    src={`${imageUrl}/${movie.poster_path}`}
                                     alt={movie.title}
                                     width={250}
                                     height={500}

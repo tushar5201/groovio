@@ -1,3 +1,4 @@
+import { baseUrl } from "@/lib/utils";
 import CarouselClient from "./CarouselClient";
 
 export default async function Carousel() {
@@ -6,8 +7,8 @@ export default async function Carousel() {
 
   try {
     const [moviesRes, genresRes] = await Promise.all([
-      fetch("https://movie-bphs.onrender.com/carousel", { cache: "no-store" }),
-      fetch("https://movie-bphs.onrender.com/get-genres", { cache: "no-store" })
+      fetch(`${baseUrl}/carousel`, { cache: "no-store" }),
+      fetch(`${baseUrl}/get-genres`, { cache: "no-store" })
     ]);
 
     const moviesData = await moviesRes.json();
