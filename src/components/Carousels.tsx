@@ -1,4 +1,3 @@
-import { baseUrl } from "@/lib/utils";
 import CarouselClient from "./CarouselClient";
 
 export default async function Carousel() {

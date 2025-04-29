@@ -2,10 +2,10 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Image from "next/image";
 import Link from "next/link";
 import { CarouselMovieInterface } from "@/interfaces/interface";
-import { baseUrl, imageUrl } from "@/lib/utils";
+import { imageUrl } from "@/lib/utils";
 
 export default async function HomeContent() {
-    const res = await fetch(`/get-latest-bollywood-movies`);
+    const res = await fetch(`/api/get-latest-bollywood-movies`);
     const response = await res.json();
     const data = response.results;
     return (
