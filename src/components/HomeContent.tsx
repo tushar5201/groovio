@@ -6,7 +6,7 @@ import { CarouselMovieInterface } from "@/interfaces/interface";
 import { baseUrl, imageUrl } from "@/lib/utils";
 
 export default async function HomeContent() {
-    const res = await axios.get(`${baseUrl}/get-latest-bollywood-movies`);
+    const res = await axios.get(`/api/get-latest-bollywood-movies`);
     const data = res.data.results;
     return (
         <div className="px-15">
