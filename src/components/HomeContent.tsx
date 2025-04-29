@@ -2,12 +2,11 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Image from "next/image";
 import Link from "next/link";
 import { CarouselMovieInterface } from "@/interfaces/interface";
-import axios from "axios";
 
 export default async function HomeContent() {
-    const res = await axios.get(`https://groovio.vercel.app/api/get-latest-bollywood-movies`);
-    // const response = await res.json();
-    const data = res.data.results;
+    const res = await fetch(`https://movie-bphs.onrender.com/get-latest-bollywood-movies`);
+    const response = await res.json();
+    const data = response.results;
     return (
         <div className="px-15">
             <h1 className="my-8 font-lexend text-white font-bold text-2xl flex"><div className="w-1.5 h-8 me-2 bg-[#FF004D]" />Bollywood Movies</h1>
@@ -17,7 +16,7 @@ export default async function HomeContent() {
                         <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/7">
                             <Link href={`/movie/${movie.id}`} key={i} className="relative overflow-hidden rounded-xl group">
                                 <Image
-                                    src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                                    src={`${process.env.IMGURL}/${movie.poster_path}`}
                                     alt={movie.title}
                                     width={250}
                                     height={500}
