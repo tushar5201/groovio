@@ -7,8 +7,8 @@ export default async function Carousel() {
 
   try {
     const [moviesRes, genresRes] = await Promise.all([
-      fetch(`${baseUrl}/carousel`, { next: { revalidate: 60 } }),
-      fetch(`${baseUrl}/get-genres`, { next: { revalidate: 60 } })
+      fetch(`${baseUrl}/carousel`),
+      fetch(`${baseUrl}/get-genres`)
     ]);
 
     const moviesData = await moviesRes.json();
