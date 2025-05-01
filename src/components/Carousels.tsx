@@ -7,8 +7,8 @@ export default async function Carousel() {
 
   try {
     const [moviesRes, genresRes] = await Promise.all([
-      axios.get(`https://movie-bphs.onrender.com/carousel`),
-      axios.get(`https://movie-bphs.onrender.com/get-genres`)
+      axios.get(`${process.env.BASE_URL}/carousel`),
+      axios.get(`${process.env.BASE_URL}/get-genres`)
     ]);
 
     // const moviesData = await moviesRes.json();

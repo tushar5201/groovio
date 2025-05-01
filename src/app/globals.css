@@ -135,13 +135,6 @@ body {
   font-family: "Lexend Deca", sans-serif;
 }
 
-
-
-
-
-
-
-
 /* swiper css */
 
 /* Carousel.css */
@@ -154,6 +147,15 @@ body {
   height: 650px;
 }
 
+@media (max-width: 640px) {
+  .swiper {
+    height: 400px;
+  }
+  .swiper-pagination-bullet {
+    width: 3px;
+    height:3px
+  }
+}
 
 .gradient-overlay {
   position: absolute;
