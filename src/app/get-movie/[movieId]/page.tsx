@@ -1,5 +1,8 @@
-
-export default async function Page({ params }: { params: { movieId: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: { movieId: string };
+}) {
   const { movieId } = await params;
 
   return (
