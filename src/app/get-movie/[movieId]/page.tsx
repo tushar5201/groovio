@@ -6,7 +6,7 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  const { movieId } = params;
+  const { movieId } = await params;
 
   return (
     <div>
