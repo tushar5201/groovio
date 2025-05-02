@@ -1,9 +1,8 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(context: { params: { movieId: string } }) {
+export async function GET(req: NextRequest, { params }: { params: { movieId: string } }) {
     try {
-        const { params } = context;
-        const movieId = await params.movieId;
+        const { movieId } = params;
         console.log(movieId);
 
         const res = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, {
