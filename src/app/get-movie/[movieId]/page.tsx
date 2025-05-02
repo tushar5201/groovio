@@ -3,7 +3,7 @@ export default async function Page({
 }: {
   params: { movieId: string };
 }) {
-  const { movieId } = await params;
+  const { movieId } = params; // No need to await here as params is already resolved.
 
   return (
     <div>
