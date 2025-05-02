@@ -1,4 +1,4 @@
-import { CarouselMovieInterface } from "@/interfaces/interface";
+import { MovieInterface } from "@/interfaces/interface";
 import axios from "axios"
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +15,7 @@ export default async function HomePage() {
         <div className="text-center mx-40">
             <h1 className="my-10 font-lexend text-white font-bold text-4xl">Recommendations</h1>
             <div className="grid grid-flow-col grid-rows-4 gap-5">
-                {data.map((movie: CarouselMovieInterface, i: number) => (
+                {data.map((movie: MovieInterface, i: number) => (
                     <Link href={`/movie/${movie.id}`} key={i} className="relative overflow-hidden rounded-3xl group">
                         <Image
                             src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}

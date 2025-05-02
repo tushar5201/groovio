@@ -1,11 +1,11 @@
-interface PageProps {
-  params: {
-    movieId: string;
-  };
-}
+// type PageProps = {
+//   params: {
+//     movieId: string;
+//   };
+// };
 
-export default async function Page({ params }: PageProps) {
-  const { movieId } = params;
+export default async function Page({ params }: {params: Promise<{ movieId: string }>}) {
+  const { movieId } = await params;
 
   return (
     <div>
