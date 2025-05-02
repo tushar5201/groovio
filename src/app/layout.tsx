@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import AppSidebar from "@/components/AppSidebar";
 
 const lexend = Lexend_Deca({
   variable: "--font-lexend",
@@ -22,10 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lexend.variable}`}
+        className={`${lexend.variable} w-full`}
       >
-        <Header />
-        {children}
+        <SidebarProvider defaultOpen={false}>
+          <AppSidebar />
+          <Header />
+          {children}
+        </SidebarProvider>
+
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import HomeContent from "../components/HomeContent";
 import "./globals.css";
 export default function Home() {
   return (
-    <div> 
+    <div className="w-full overflow-x-hidden"> 
       <Carousels />
       <HomeContent />
     </div>

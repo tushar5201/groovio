@@ -8,17 +8,20 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
-import { CarouselGenreInterface, CarouselMovieInterface } from '@/interfaces/interface';
+import { GenreInterface, MovieInterface } from '@/interfaces/interface';
+import "react-slideshow-image/dist/styles.css"
+import { Zoom } from "react-slideshow-image"
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 
 interface CarouselClientProps {
-    movies: CarouselMovieInterface[];
-    genres: CarouselGenreInterface[];
+    movies: MovieInterface[];
+    genres: GenreInterface[];
 }
 
 const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
 
     return (
-        <div className="swiper-container">
+        <div>
             <Swiper
                 effect="fade"
                 spaceBetween={30}
@@ -29,9 +32,8 @@ const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
                 }}
                 pagination={{ clickable: true }}
                 modules={[Autoplay, Pagination, Navigation, EffectFade]}
-                className="mySwiper"
             >
-                {movies.map((movie: CarouselMovieInterface, i: number) => (
+                {movies.map((movie: MovieInterface, i: number) => (
                     <div key={i}>
                         {
                             movie.backdrop_path !== null &&
@@ -48,12 +50,12 @@ const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
                                     <div className="gradient-overlay"></div>
                                     <div className="absolute bottom-0 left-0 w-full h-[50%] bg-gradient-to-t from-[#020916] via-[#0b1120cc] to-transparent z-10 pointer-events-none"></div>
 
-                                    <div className="absolute text-white bottom-20 px-5 md:left-25 z-50">
+                                    <div className="absolute text-white bottom-20 px-5 md:left-12 z-50">
                                         <h2 className="text-white text-lg md:text-3xl font-semibold">{movie.title}</h2>
                                         <div className="flex md:mt-2">
                                             {movie.genre_ids.map((genre, i) => (
                                                 <div key={i}>
-                                                    {genres.map((g: CarouselGenreInterface, j: number) => (
+                                                    {genres.map((g: GenreInterface, j: number) => (
                                                         <h6 key={j} className="mt-2 me-2">
                                                             {genre === g.id && g.name}
                                                         </h6>
@@ -82,3 +84,35 @@ const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
 };
 
 export default CarouselClient;
+
+
+// export default function CarouselClient({ movies, genres }: CarouselClientProps) {
+//     const zoomInProperties = {
+//         scale: 1,
+//         duration: 5000,
+//         transitionDuration: 300,
+//         infinity: true,
+//         prevArrow: (
+//             <div className='ml-10 top-40 md:top-72'>
+//                 <ArrowLeftIcon className='h-8 w-8 text-white cursor-pointer' />
+//             </div>
+//         ),
+//         nextArrow: (
+//             <div className='ml-10 top-40 md:top-72'>
+//                 <ArrowRightIcon className='h-8 w-8 text-white cursor-pointer' />
+//             </div>
+//         ),
+//     }
+//     return (
+//         <div className='w-screen h-screen z-30'>
+//             <Zoom {...zoomInProperties}>
+//                 {movies.map((movie: MovieInterface, i: number) => (
+
+//                     <div key={i} className='flex justify-center md:items-center items-start w-screen h-screen relative'>
+//                         <img className='w-screen' src={`${process.env.NEXT_PUBLIC_IMG_URL}/${movie.backdrop_path}`} alt={movie.title} />
+//                     </div>
+//                 ))}
+//             </Zoom>
+//         </div>
+//     )
+// }

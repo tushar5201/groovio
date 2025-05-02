@@ -11,10 +11,6 @@ export default async function Carousel() {
       axios.get(`${process.env.BASE_URL}/get-genres`)
     ]);
 
-    // const moviesData = await moviesRes.json();
-    // const genresData = await genresRes.json();
-    // movies = moviesData.results || moviesData;
-    // genres = genresData.genres;
     movies = moviesRes.data.results
     genres = genresRes.data.genres;
   } catch (err) {
@@ -23,5 +19,5 @@ export default async function Carousel() {
 
   if (!movies.length) return <div>No movies found</div>;
 
-  return <CarouselClient movies={movies} genres={genres} />;
+  return <CarouselClient movies={movies}  genres={genres} />;
 }
