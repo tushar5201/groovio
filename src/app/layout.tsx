@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Lexend_Deca } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/AppSidebar";
 
@@ -28,7 +27,7 @@ export default function RootLayout({
       >
         <SidebarProvider defaultOpen={false}>
           <AppSidebar />
-          <Header />
+          {/* <Header /> */}
           {children}
         </SidebarProvider>
 

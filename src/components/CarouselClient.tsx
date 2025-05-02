@@ -10,8 +10,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import { GenreInterface, MovieInterface } from '@/interfaces/interface';
 import "react-slideshow-image/dist/styles.css"
-import { Zoom } from "react-slideshow-image"
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 
 interface CarouselClientProps {
     movies: MovieInterface[];
@@ -70,7 +68,7 @@ const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
                                             {movie.overview?.substring(0, 200)}...
                                         </p>
                                         <button className="rounded-lg mt-2 md:mt-5 px-4 py-1.5 bg-gradient-to-r from-[#f3001d] to-[#ff004d]">
-                                            <Link href={`/movie/${movie.id}`} className="text-white font-lexend md:text-lg rounded-md no-underline" style={{ textDecoration: "none" }}>Watch Now</Link>
+                                            <Link href={`/get-movie/${movie.id}`} className="text-white font-lexend md:text-lg rounded-md no-underline" style={{ textDecoration: "none" }}>Watch Now</Link>
                                         </button>
                                     </div>
                                 </div>

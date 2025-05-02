@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Menu, MessageSquareMore, Search, Settings, Slack, User, UserRound } from "lucide-react"
+import { Home, MessageSquareMore, Settings, Slack, User } from "lucide-react"
 
 import {
   Sidebar,
@@ -42,7 +42,7 @@ const items = [
 
 export default function AppSidebar() {
   return (
-    <Sidebar collapsible="icon" className="z-50 pt-[15%]">
+    <Sidebar collapsible="icon" className="z-50 pt-[15%] bg-[#020916]">
       <SidebarContent className="bg-[#020916] border-0 items-center">
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>

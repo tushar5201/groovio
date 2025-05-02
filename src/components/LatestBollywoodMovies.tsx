@@ -15,7 +15,7 @@ export default async function LatestBollywoodMovies() {
         <CarouselContent>
           {data.map((movie: MovieInterface, i: number) => (
             <CarouselItem key={i} className="basis-1/3 md:basis-1/2 lg:basis-1/7">
-              <Link href={`/movie/${movie.id}`} key={i} className="relative overflow-hidden md:rounded-xl group">
+              <Link href={`/get-movie/${movie.id}`} key={i} className="relative overflow-hidden md:rounded-xl group">
                 <Image
                   src={`${process.env.NEXT_PUBLIC_IMG_URL}/${movie.poster_path}`}
                   alt={movie.title}
