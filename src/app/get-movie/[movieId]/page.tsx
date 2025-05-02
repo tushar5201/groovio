@@ -1,9 +1,9 @@
-export default function Page({
+export default async function Page({
   params,
 }: {
   params: { movieId: string };
 }) {
-  const { movieId } = params;
+  const { movieId } = params; // No need to await here as params is passed directly.
 
   return (
     <div>
