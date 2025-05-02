@@ -1,9 +1,11 @@
-export default async function Page({
-  params,
-}: {
-  params: { movieId: string };
-}) {
-  const { movieId } = params; // No need to await here as params is passed directly.
+interface PageProps {
+  params: {
+    movieId: string;
+  };
+}
+
+export default async function Page({ params }: PageProps) {
+  const { movieId } = params;
 
   return (
     <div>
