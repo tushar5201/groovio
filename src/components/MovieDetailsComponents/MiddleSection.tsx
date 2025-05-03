@@ -1,7 +1,8 @@
+import { MovieDetailsInterface } from "@/interfaces/MovieDetails";
 import { StarIcon } from "lucide-react";
 import Link from "next/link";
 
-export default function MiddleSection({ movieData }: { movieData: any }) {
+export default function MiddleSection({ movieData }: { movieData: MovieDetailsInterface }) {
   const totalStars = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <div className="row-span-2 row-end-3 ms-5 mt-5">

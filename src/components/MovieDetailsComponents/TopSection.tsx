@@ -1,6 +1,7 @@
+import { MovieDetailsInterface } from "@/interfaces/MovieDetails";
 import Image from "next/image";
 
-export default function TopSection({ movieData }: { movieData: any }) {
+export default function TopSection({ movieData }: { movieData: MovieDetailsInterface }) {
     return (
         <div>
             <Image
