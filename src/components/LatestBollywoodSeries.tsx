@@ -10,7 +10,7 @@ export default async function LatestBollywoodSeries() {
   const data = res.data.results;
   return (
     <div>
-      <h1 className="my-4 md:my-8 font-lexend text-white font-bold text-lg md:text-2xl flex"><div className="w-1 md:w-1.5 md:h-8 me-2 bg-[#FF004D]" />Bollywood Series</h1>
+      <h1 className="my-4 md:mb-8 md:-mt-15 font-lexend text-white font-bold text-lg md:text-2xl flex"><div className="w-1 md:w-1.5 md:h-8 me-2 bg-[#FF004D]" />Bollywood Series</h1>
       <Carousel opts={{ align: "start" }} className="w-full overflow-hidden md:overflow-visible">
         <CarouselContent>
           {data.map((series: SeriesInterface, i: number) => (

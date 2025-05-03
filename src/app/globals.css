@@ -203,3 +203,7 @@ body {
   width: 22px;
   height: 22px;
 }
+
+.img-hero-movie {
+  height: 300px !important;
+}
