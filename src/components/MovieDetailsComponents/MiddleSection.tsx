@@ -6,8 +6,9 @@ import RightSection from "./RightSection";
 
 export default function MiddleSection({ movieData, creditsData }: { movieData: MovieDetailsInterface, creditsData: CreditsInterface }) {
   const totalStars = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   return (
-    <div className="row-span-2 row-end-3 ms-5 mt-10">
+    <div className="row-span-2 row-end-3 ms-5 mt-10 z-50">
       <h6> {movieData.release_date?.substring(0, 4)} </h6>
       <h1 className="font-bold text-4xl"> {movieData.title} </h1>
 
@@ -32,8 +33,9 @@ export default function MiddleSection({ movieData, creditsData }: { movieData: M
             <h1>Storyline</h1>
             <p className="text-light-grey mt-3">{movieData.tagline}</p>
             <p className="text-soft-grey mt-1">{movieData.overview}</p>
+
             <button className="rounded-lg mt-2 md:mt-10 px-5 py-2 bg-gradient-to-r from-[#f3001d] to-[#ff004d]">
-              <Link href={`/get-movie/${movieData.id}`} className="text-white font-lexend md:text-lg rounded-md no-underline" style={{ textDecoration: "none" }}>Watch Now</Link>
+              <Link href={`/play-movie/${movieData.id}`} className="text-white font-lexend md:text-lg rounded-md no-underline" style={{ textDecoration: "none" }}>Watch Now</Link>
             </button>
 
             <button className="bg-soft-grey rounded-lg px-5 py-2 ms-5 md:mt-10">
@@ -52,9 +54,9 @@ export default function MiddleSection({ movieData, creditsData }: { movieData: M
                     <h6>Languages</h6>
                   </TableCell>
                   <TableCell className="flex text-soft-grey text-end justify-end">
-                      {movieData.spoken_languages.map((lang: { english_name: string; name: string }, i: number) => (
-                        <h6 key={i} className="me-3">{lang.english_name}</h6>
-                      ))}
+                    {movieData.spoken_languages.map((lang: { english_name: string; name: string }, i: number) => (
+                      <h6 key={i} className="me-3">{lang.english_name}</h6>
+                    ))}
                   </TableCell>
                 </TableRow>
 
