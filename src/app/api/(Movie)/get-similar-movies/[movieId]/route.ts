@@ -7,8 +7,10 @@ export async function GET(request: NextRequest) {
     const parts = pathname.split('/');
     const movieId = parts[parts.length - 1]; // gets the [movieId] from /api/get-movie-details/[movieId]
 
+    console.log('movieId:', movieId);
+
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
+      `https://api.themoviedb.org/3/movie/${movieId}/similar?language=en-US`,
       {
         headers: {
           accept: 'application/json',

@@ -7,7 +7,7 @@ export default async function HomeContent() {
         <div className="px-2 md:px-15">
             <LatestBollywoodMovies />
             <LatestBollywoodSeries />
-            <div className="h-[500px]"></div>
+            {/* <div className="h-[500px]"></div> */}
         </div>
     )
 }
