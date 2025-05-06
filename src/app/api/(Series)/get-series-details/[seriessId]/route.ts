@@ -5,10 +5,10 @@ export async function GET(request: NextRequest) {
   try {
     const { pathname } = new URL(request.url);
     const parts = pathname.split('/');
-    const movieId = parts[parts.length - 1]; // gets the [movieId] from /api/get-movie-details/[movieId]
+    const series = parts[parts.length - 1]; // gets the [movieId] from /api/get-movie-details/[movieId]
 
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/images`,
+      `https://api.themoviedb.org/3/tv/${series}?language=en-US`,
       {
         headers: {
           accept: 'application/json',
