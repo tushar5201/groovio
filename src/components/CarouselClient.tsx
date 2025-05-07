@@ -82,35 +82,3 @@ const CarouselClient = ({ movies, genres }: CarouselClientProps) => {
 };
 
 export default CarouselClient;
-
-
-// export default function CarouselClient({ movies, genres }: CarouselClientProps) {
-//     const zoomInProperties = {
-//         scale: 1,
-//         duration: 5000,
-//         transitionDuration: 300,
-//         infinity: true,
-//         prevArrow: (
-//             <div className='ml-10 top-40 md:top-72'>
-//                 <ArrowLeftIcon className='h-8 w-8 text-white cursor-pointer' />
-//             </div>
-//         ),
-//         nextArrow: (
-//             <div className='ml-10 top-40 md:top-72'>
-//                 <ArrowRightIcon className='h-8 w-8 text-white cursor-pointer' />
-//             </div>
-//         ),
-//     }
-//     return (
-//         <div className='w-screen h-screen z-30'>
-//             <Zoom {...zoomInProperties}>
-//                 {movies.map((movie: MovieInterface, i: number) => (
-
-//                     <div key={i} className='flex justify-center md:items-center items-start w-screen h-screen relative'>
-//                         <img className='w-screen' src={`${process.env.NEXT_PUBLIC_IMG_URL}/${movie.backdrop_path}`} alt={movie.title} />
-//                     </div>
-//                 ))}
-//             </Zoom>
-//         </div>
-//     )
-// }

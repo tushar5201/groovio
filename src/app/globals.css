@@ -207,3 +207,7 @@ body {
 .img-hero-movie {
   height: 300px !important;
 }
+
+.img-hero-series {
+  height: 600px !important;
+}

@@ -6,10 +6,13 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import Image from "next/image"
+import Link from "next/link"
 
 // Menu items.
 const items = [
@@ -42,8 +45,19 @@ const items = [
 
 export default function AppSidebar() {
   return (
-    <Sidebar collapsible="icon" className="z-50 pt-[15%] bg-[#020916]">
-      <SidebarContent className="bg-[#020916] border-0 items-center">
+    <Sidebar collapsible="icon" className="z-50 pt-8 bg-[#020916] flex justify-between">
+      <SidebarHeader className="bg-[#020916] border-0 items-center">
+        <Link href="/" className="hover:scale-120 transition-all duration-200">
+          <Image
+            src="/G_bold_rmbg.png"
+            alt="Logo"
+            width={200}
+            height={200}
+            className="p-1"
+          />
+        </Link>
+      </SidebarHeader>
+      <SidebarContent className="bg-[#020916] justify-center">
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>

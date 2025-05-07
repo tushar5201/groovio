@@ -34,11 +34,11 @@ export default function MiddleSection({ movieData, creditsData }: { movieData: M
             <p className="text-light-grey mt-3">{movieData.tagline}</p>
             <p className="text-soft-grey mt-1">{movieData.overview}</p>
 
-            <button className="rounded-lg mt-2 md:mt-10 px-5 py-2 bg-gradient-to-r from-[#f3001d] to-[#ff004d]">
+            <button className="rounded-lg mt-2 md:mt-10 px-5 py-2 bg-gradient-to-r from-[#f3001d] to-[#ff004d] hover:scale-110 transition-all duration-300">
               <Link href={`/play-movie/${movieData.id}`} className="text-white font-lexend md:text-lg rounded-md no-underline" style={{ textDecoration: "none" }}>Watch Now</Link>
             </button>
 
-            <button className="bg-soft-grey rounded-lg px-5 py-2 ms-5 md:mt-10">
+            <button className="bg-soft-grey rounded-lg px-5 py-2 ms-5 md:mt-10 hover:scale-110 transition-all duration-300">
               <Link href={`/get-movie/${movieData.id}`} className="text-white font-lexend md:text-lg rounded-md no-underline" style={{ textDecoration: "none" }}>
                 <Heart />
               </Link>
