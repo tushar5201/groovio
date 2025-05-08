@@ -2,17 +2,16 @@ import LeftSection from "@/components/MovieDetailsComponents/LeftSection";
 import MiddleSection from "@/components/MovieDetailsComponents/MiddleSection";
 import SimilarMovies from "@/components/MovieDetailsComponents/SimilarMovies";
 import TopSection from "@/components/MovieDetailsComponents/TopSection";
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Page({ params }: { params: Promise<{ movieId: string }> }) {
   const { movieId } = await params;
-  const movie = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-movie-details/${movieId}`);
-  const movieData = movie.data;
+  const movieRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/get-movie-details/${movieId}`, { cache: 'no-store' });
+  const movieData = await movieRes.json();
 
-  const credits = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-movie-credits/${movieId}`);
-  const creditsData = credits.data;
+  const creditsRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/get-movie-credits/${movieId}`, { cache: 'no-store' });
+  const creditsData = await creditsRes.json();
 
   return (
     <div className="relative w-full">

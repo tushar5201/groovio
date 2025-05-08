@@ -1,15 +1,14 @@
 import Header from "@/components/Header";
 import BottomSection from "@/components/SeriesDetailsComponents/BottomSection";
 import TopBannerSection from "@/components/SeriesDetailsComponents/TopBannerSection";
-import axios from "axios";
 
 export default async function page({ params }: { params: Promise<{ seriesId: string }> }) {
   const { seriesId } = await params;
-  const series = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-series-details/${seriesId}`);
-  const seriesData = series.data;
+  const seriesRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/get-series-details/${seriesId}`, { cache: 'no-store' });
+  const seriesData = await seriesRes.json();
 
-  const credits = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-series-credit/${seriesId}`);
-  const creditsData = credits.data;
+  const creditsRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/get-series-credit/${seriesId}`, { cache: 'no-store' });
+  const creditsData = await creditsRes.json();
 
   return (
     <div className="relative w-full">
