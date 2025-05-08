@@ -5,10 +5,10 @@ import axios from 'axios';
 import Image from 'next/image';
 
 export default async function RightSection({ movieData }: { movieData: MovieDetailsInterface }) {
-    const photosApi = await axios.get(`${process.env.BASE_URL}/get-movie-images/${movieData.id}`);
+    const photosApi = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-movie-images/${movieData.id}`);
     const photos = photosApi.data.backdrops;
 
-    const videosApi = await axios.get(`${process.env.BASE_URL}/get-movie-videos/${movieData.id}`);
+    const videosApi = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-movie-videos/${movieData.id}`);
     const videos = videosApi.data.results;
     return (
         <div className="ms-5 w-4/12">

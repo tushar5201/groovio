@@ -4,7 +4,7 @@ import DetailsSection from "./DetailsSection";
 import { CreditInterface, SeriesDetailsInterface } from "@/interfaces/SeriesDetails";
 import MoreLikeThisSection from "./MoreLikeThisSection";
 
-export default function BottomSection({seriesData, creditsData}: {seriesData: SeriesDetailsInterface; creditsData: CreditInterface}) {
+export default function BottomSection({ seriesData, creditsData }: { seriesData: SeriesDetailsInterface; creditsData: CreditInterface; }) {
     return (
         <div className="text-white ms-10">
             <Tabs defaultValue="s&e" orientation="vertical" >
@@ -14,7 +14,7 @@ export default function BottomSection({seriesData, creditsData}: {seriesData: Se
                     <TabsTrigger className="p-4" value="mlt">More like this</TabsTrigger>
                 </TabsList>
                 <TabsContent value="s&e">
-                    <SeasonsAndEpisodes />
+                    <SeasonsAndEpisodes seriesData={seriesData} />
                 </TabsContent>
                 <TabsContent value="details">
                     <DetailsSection seriesData={seriesData} creditsData={creditsData} />

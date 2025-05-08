@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default async function SimilarMovies({ movieData }: { movieData: MovieDetailsInterface }) {
   const movieId = movieData.id;
-  const movie = await axios.get(`${process.env.BASE_URL}/get-similar-movies/${movieId}`);
+  const movie = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-similar-movies/${movieId}`);
   const similarMovies = movie.data.results;
   return (
     <div className="ms-12 m-5">

@@ -5,9 +5,10 @@ import axios from "axios";
 
 export default async function page({ params }: { params: Promise<{ seriesId: string }> }) {
   const { seriesId } = await params;
-  const series = await axios.get(`${process.env.BASE_URL}/get-series-details/${seriesId}`);
+  const series = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-series-details/${seriesId}`);
   const seriesData = series.data;
-  const credits = await axios.get(`${process.env.BASE_URL}/get-series-credit/${seriesId}`);
+
+  const credits = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-series-credit/${seriesId}`);
   const creditsData = credits.data;
 
   return (

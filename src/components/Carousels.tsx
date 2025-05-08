@@ -7,8 +7,8 @@ export default async function Carousel() {
 
   try {
     const [moviesRes, genresRes] = await Promise.all([
-      axios.get(`${process.env.BASE_URL}/carousel`),
-      axios.get(`${process.env.BASE_URL}/get-genres`)
+      axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/carousel`),
+      axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-genres`)
     ]);
 
     movies = moviesRes.data.results

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default async function MoreLikeThisSection({ seriesData }: { seriesData: SeriesDetailsInterface }) {
   const seriesId = seriesData.id;
-  const movie = await axios.get(`${process.env.BASE_URL}/get-similar-series/${seriesId}`);
+  const movie = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-similar-series/${seriesId}`);
   const similarSeries = movie.data.results;
   return (
     <div>

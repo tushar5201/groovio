@@ -5,7 +5,7 @@ import { MovieInterface } from "@/interfaces/interface";
 import axios from "axios";
 
 export default async function LatestBollywoodMovies() {
-  const res = await axios.get(`${process.env.BASE_URL}/get-latest-bollywood-movies`);
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-latest-bollywood-movies`);
   // const response = await res.json();
   const data = res.data.results;
   return (

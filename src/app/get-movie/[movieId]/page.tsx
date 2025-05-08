@@ -8,10 +8,10 @@ import Link from "next/link";
 
 export default async function Page({ params }: { params: Promise<{ movieId: string }> }) {
   const { movieId } = await params;
-  const movie = await axios.get(`${process.env.BASE_URL}/get-movie-details/${movieId}`);
+  const movie = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-movie-details/${movieId}`);
   const movieData = movie.data;
 
-  const credits = await axios.get(`${process.env.BASE_URL}/get-movie-credits/${movieId}`);
+  const credits = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-movie-credits/${movieId}`);
   const creditsData = credits.data;
 
   return (

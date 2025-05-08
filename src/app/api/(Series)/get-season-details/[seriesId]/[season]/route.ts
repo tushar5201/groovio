@@ -2,14 +2,25 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
+    const responseHeaders = {
+        'Access-Control-Allow-Origin': '*', // or specify your frontend URL instead of *
+        'Access-Control-Allow-Methods': 'GET,OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    };
+
+    if (request.method === 'OPTIONS') {
+        // Handle preflight
+        return new NextResponse(null, { status: 204, headers: responseHeaders });
+    }
+
     try {
         const { pathname } = new URL(request.url);
         const parts = pathname.split('/');
-        const series = parts[parts.length - 2]; // gets the [movieId] from /api/get-movie-details/[movieId]
-        const season = parts[parts.length - 1]; // gets the [season] from /api/get-movie-details/[movieId]/[season]
+        const series = parts[parts.length - 2];
+        const season = parts[parts.length - 1];
 
         const res = await fetch(
-            `https://api.themoviedb.org/3/tv/${series}/season/${season}?language=en-US`, // Updated URL to include season
+            `https://api.themoviedb.org/3/tv/${series}/season/${season}?language=en-US`,
             {
                 headers: {
                     accept: 'application/json',
@@ -22,9 +33,12 @@ export async function GET(request: NextRequest) {
         if (!res.ok) throw new Error('Failed to fetch TMDB data');
 
         const data = await res.json();
-        return NextResponse.json(data);
+        return NextResponse.json(data, { headers: responseHeaders });
     } catch (error) {
         console.error('API Route Error:', error);
-        return NextResponse.json({ error: 'Unable to fetch data' }, { status: 500 });
+        return NextResponse.json(
+            { error: 'Unable to fetch data' },
+            { status: 500, headers: responseHeaders }
+        );
     }
 }

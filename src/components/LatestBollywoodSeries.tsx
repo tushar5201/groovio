@@ -5,7 +5,7 @@ import { SeriesInterface } from "@/interfaces/interface";
 import axios from "axios";
 
 export default async function LatestBollywoodSeries() {
-  const res = await axios.get(`${process.env.BASE_URL}/get-latest-bollywood-series`);
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-latest-bollywood-series`);
   // const response = await res.json();
   const data = res.data.results;
   return (

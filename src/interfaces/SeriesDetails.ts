@@ -104,9 +104,9 @@ export interface CreditInterface {
     cast: Cast[]
     crew: Crew[]
     id: number
-  }
-  
-  export interface Cast {
+}
+
+export interface Cast {
     adult: boolean
     gender: number
     id: number
@@ -118,9 +118,9 @@ export interface CreditInterface {
     character: string
     credit_id: string
     order: number
-  }
-  
-  export interface Crew {
+}
+
+export interface Crew {
     adult: boolean
     gender: number
     id: number
@@ -132,5 +132,32 @@ export interface CreditInterface {
     credit_id: string
     department: string
     job: string
-  }
-  
+}
+
+export interface SeasonDetailsInterface {
+    _id: string
+    air_date: string
+    episodes: EpisodeInterface[]
+    name: string
+    overview: string
+    id: number
+    poster_path: string
+    season_number: number
+    vote_average: number
+}
+
+export interface EpisodeInterface {
+    air_date: string
+    episode_number: number
+    episode_type: string
+    id: number
+    name: string
+    overview: string
+    production_code: string
+    runtime: number
+    season_number: number
+    show_id: number
+    still_path: string
+    vote_average: number
+    vote_count: number
+}
