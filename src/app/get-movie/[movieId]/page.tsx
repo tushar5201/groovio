@@ -3,7 +3,7 @@ import MiddleSection from "@/components/MovieDetailsComponents/MiddleSection";
 import SimilarMovies from "@/components/MovieDetailsComponents/SimilarMovies";
 import TopSection from "@/components/MovieDetailsComponents/TopSection";
 import axios from "axios";
-import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function Page({ params }: { params: Promise<{ movieId: string }> }) {
@@ -19,8 +19,13 @@ export default async function Page({ params }: { params: Promise<{ movieId: stri
       <TopSection movieData={movieData} />
       <div className="ms-10 mt-10 text-white px-5 md:left-12 z-50">
         <Link href={"/"} className="flex">
-          <ArrowLeft className="text-soft-grey z-50" />
-          <h2 className="text-soft-grey ms-5 md:text-md z-50">{movieData.tagline ? `${movieData.title} : ${movieData.tagline}` : movieData.title}</h2>
+          <Image
+            src="/pink_rmbg_logo.png"
+            width={125}
+            height={100}
+            alt="logo"
+            className="z-20"
+          />
         </Link>
 
         <div className="grid grid-flow-col grid-rows-2 gap-4 mt-5">
@@ -30,7 +35,7 @@ export default async function Page({ params }: { params: Promise<{ movieId: stri
           <MiddleSection movieData={movieData} creditsData={creditsData} />
         </div>
       </div>
-        <SimilarMovies movieData={movieData} />
+      <SimilarMovies movieData={movieData} />
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function MiddleSection({ movieData, creditsData }: { movieData: M
   const totalStars = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
-    <div className="row-span-2 row-end-3 ms-5 mt-10 z-50">
+    <div className="row-span-2 row-end-3 ms-5 mt-5 z-50">
       <h6> {movieData.release_date?.substring(0, 4)} </h6>
       <h1 className="font-bold text-4xl"> {movieData.title} </h1>
 

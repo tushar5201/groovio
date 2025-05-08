@@ -1,4 +1,4 @@
-import { Home, MessageSquareMore, Settings, Slack, User } from "lucide-react"
+import { Home, MessageSquareMore, Search, Settings, User } from "lucide-react"
 
 import {
   Sidebar,
@@ -24,7 +24,7 @@ const items = [
   {
     title: "Menu",
     url: "#",
-    icon: Slack,
+    icon: Search,
   },
   {
     title: "Profile",

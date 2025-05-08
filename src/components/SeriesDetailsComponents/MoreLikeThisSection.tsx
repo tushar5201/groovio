@@ -10,7 +10,7 @@ export default async function MoreLikeThisSection({ seriesData }: { seriesData: 
   return (
     <div>
       <div className="ms-12 m-5">
-        {similarSeries.length === 0 && <div className='text-soft-grey text-center w-full'>No similar movies available</div>}
+        {similarSeries.length === 0 && <div className='text-soft-grey text-center w-full'>No similar series available</div>}
 
         <div className="grid grid-flow-row grid-cols-8 gap-5">
           {similarSeries.map((series: SeriesDetailsInterface, i: number) => (
