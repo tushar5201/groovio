@@ -11,6 +11,9 @@
   --color-soft-grey: #868786;
   --color-dark-grey: #575657;
   --color-black-grey: #232323;
+  --color-dark-blue: #020916;
+  --color-light-blue: #0b1120cc;
+  --color-pink: #FF004D;
 }
 
 @theme inline {
