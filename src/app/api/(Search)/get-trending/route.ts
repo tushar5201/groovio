@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
         const res = await fetch(
             `https://api.themoviedb.org/3/trending/all/day?language=en-US`,
