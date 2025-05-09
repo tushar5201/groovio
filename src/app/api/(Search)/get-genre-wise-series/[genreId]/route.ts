@@ -31,9 +31,12 @@ export async function GET(request: NextRequest) {
         if (!res.ok) throw new Error('Failed to fetch TMDB data');
 
         const data = await res.json();
-        return NextResponse.json(data);
+        return new NextResponse(JSON.stringify(data), {
+            status: 200,
+            headers: responseHeaders,
+        });
     } catch (error) {
         console.error('API Route Error:', error);
-        return NextResponse.json({ error: 'Unable to fetch data' }, { status: 500 });
+        return NextResponse.json({ error: 'Unable to fetch data' }, { status: 500, headers: responseHeaders });
     }
 }
