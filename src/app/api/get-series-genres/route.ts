@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
     const responseHeaders = {
@@ -11,18 +11,15 @@ export async function GET(request: NextRequest) {
         return new NextResponse(null, { status: 204, headers: responseHeaders });
     }
     try {
-        const res = await fetch(
-            `https://api.themoviedb.org/3/trending/all/day?language=en-US`,
-            {
-                headers: {
-                    accept: 'application/json',
-                    Authorization: `Bearer ${process.env.TMDB_KEY}`,
-                },
-                cache: 'no-store',
-            }
-        );
+        const res = await fetch("https://api.themoviedb.org/3/genre/tv/list?language=en", {
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${process.env.TMDB_KEY}`
+            },
+            cache: "no-store",
+        });
 
-        if (!res.ok) throw new Error('Failed to fetch TMDB data');
+        if (!res.ok) throw new Error("Failed to fetch TMDB data");
 
         const data = await res.json();
         return new NextResponse(JSON.stringify(data), {
@@ -30,7 +27,7 @@ export async function GET(request: NextRequest) {
             headers: responseHeaders,
         });
     } catch (error) {
-        console.error('API Route Error:', error);
-        return NextResponse.json({ error: 'Unable to fetch data' }, { status: 500, headers: responseHeaders });
+        console.error("API Route Error:", error);
+        return new NextResponse(JSON.stringify({ error: "Unable to fetch data" }), { status: 500 });
     }
 }
