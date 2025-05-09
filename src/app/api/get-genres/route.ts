@@ -1,6 +1,15 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+    const responseHeaders = {
+        'Access-Control-Allow-Origin': '*', // or specify your frontend URL instead of *
+        'Access-Control-Allow-Methods': 'GET,OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    };
+    if (request.method === 'OPTIONS') {
+        // Handle preflight
+        return new NextResponse(null, { status: 204, headers: responseHeaders });
+    }
     try {
         const res = await fetch("https://api.themoviedb.org/3/genre/movie/list?language=en", {
             headers: {
@@ -15,7 +24,7 @@ export async function GET() {
         const data = await res.json();
         return new NextResponse(JSON.stringify(data), {
             status: 200,
-            headers: { "Content-Type": "application/json" }
+            headers: responseHeaders,
         });
     } catch (error) {
         console.error("API Route Error:", error);
