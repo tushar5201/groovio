@@ -15,7 +15,7 @@ export default function SeriesSection({ selectedGenres, selectedRating }: { sele
     useEffect(() => {
         const fetchTrending = async () => {
             try {
-                const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-trending-movies`);
+                const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-trending-series`);
                 setTrending(res.data.results);
             } catch (error) {
                 console.log(error);
@@ -36,7 +36,7 @@ export default function SeriesSection({ selectedGenres, selectedRating }: { sele
         }
 
         getGenreWiseSeriesData();
-    }, [selectedGenres]);
+    }, [selectedGenres, selectedRating]);
 
     return (
         <div>
@@ -67,6 +67,9 @@ export default function SeriesSection({ selectedGenres, selectedRating }: { sele
                 ))}
             </div>
             <h1 className="text-white text-2xl mt-10">Category Wise Series</h1>
+            {
+                genreWiseSeriesData.length === 0 && <h1 className="text-soft-grey text-center mt-20">Select Genres to get series</h1>
+            }
             <div className="w-full grid grid-cols-6 gap-5 mt-5">
                 {genreWiseSeriesData.map((series, i) => (
                     i < 12 &&
