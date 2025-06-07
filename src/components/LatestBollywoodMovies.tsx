@@ -12,15 +12,11 @@ export default function LatestBollywoodMovies() {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      try {
-        setLoading(true);
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-latest-bollywood-movies`);
-        // const response = await res.json();
-        setData(res.data.results);
-        setLoading(true);
-      } catch (error) {
-        console.log(error);
-      }
+      setLoading(true);
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/get-latest-bollywood-movies`);
+      // const response = await res.json();
+      setData(res.data.results);
+      setLoading(false);
     }
     fetchMovies();
   }, []);
